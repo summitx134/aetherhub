@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/aetherhub-logo.svg" type="image/svg+xml" />
+    <link rel="shortcut icon" href="/aetherhub-logo.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <!--SEO_META-->
+    <style>
+      html body {
+        background: #f8f8f8;
+      }
+      html[data-theme='dark'] body {
+        background-color: #000;
+      }
+      #loading-screen {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: inherit;
+        gap: 12px;
+      }
+      @keyframes loading-draw {
+        0% { stroke-dashoffset: 1000; }
+        100% { stroke-dashoffset: 0; }
+      }
+      @keyframes loading-fill {
+        30% { fill-opacity: 0.05; }
+        100% { fill-opacity: 1; }
+      }
+      #loading-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #1f1f1f;
+      }
+      #loading-brand svg path {
+        fill: currentcolor;
+        fill-opacity: 0;
+        stroke: currentcolor;
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        stroke-width: 0.25em;
+        animation:
+          loading-draw 2s cubic-bezier(0.4, 0, 0.2, 1) infinite,
+          loading-fill 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      }
+      html[data-theme='dark'] #loading-brand {
+        color: #f0f0f0;
+      }
+    </style>
+    <script>
+      (function () {
+        function supportsImportMaps() {
+          return (
+            typeof HTMLScriptElement !== 'undefined' &&
+            typeof HTMLScriptElement.supports === 'function' &&
+            HTMLScriptElement.supports('importmap')
+          );
+        }
+
+        function supportsCascadeLayers() {
+          var el = document.createElement('div');
+          el.className = '__layer_test__';
+          el.style.position = 'absolute';
+          el.style.left = '-99999px';
+          el.style.top = '-99999px';
+
+          var style = document.createElement('style');
+          style.textContent =
+            '@layer a, b;' +
+            '@layer a { .__layer_test__ { color: rgb(1, 2, 3); } }' +
+            '@layer b { .__layer_test__ { color: rgb(4, 5, 6); } }';
+
+          document.documentElement.append(style);
+          document.documentElement.append(el);
+
+          var color = getComputedStyle(el).color;
+
+          el.remove();
+          style.remove();
+
+          return color === 'rgb(4, 5, 6)';
+        }
+
+        if (!(supportsImportMaps() && supportsCascadeLayers())) {
+          window.location.href = '/not-compatible.html';
+          return;
+        }
+
+        var theme = 'system';
+        try {
+          theme = localStorage.getItem('theme') || 'system';
+        } catch (_) {}
+        var systemTheme =
+          window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+        var resolvedTheme = theme === 'system' ? systemTheme : theme;
+        if (resolvedTheme === 'dark' || resolvedTheme === 'light') {
+          document.documentElement.setAttribute('data-theme', resolvedTheme);
+        }
+
+        var hl = new URLSearchParams(location.search).get('hl');
+        var m = document.cookie.match(/(?:^|;\s*)LOBE_LOCALE=([^;]*)/);
+        var cookie = m ? decodeURIComponent(m[1]) : '';
+        var locale = hl || cookie || navigator.language || 'en-US';
+        if (locale === 'auto') locale = navigator.language || 'en-US';
+        if (hl && !cookie) {
+          document.cookie =
+            'LOBE_LOCALE=' + encodeURIComponent(hl) + ';path=/;max-age=7776000;SameSite=Lax';
+        }
+        document.documentElement.lang = locale;
+        var rtl = ['ar', 'arc', 'dv', 'fa', 'ha', 'he', 'khw', 'ks', 'ku', 'ps', 'ur', 'yi'];
+        document.documentElement.dir =
+          rtl.indexOf(locale.split('-')[0].toLowerCase()) >= 0 ? 'rtl' : 'ltr';
+      })();
+    </script>
+    <script>
+      window.__SERVER_CONFIG__ = undefined; /* SERVER_CONFIG */
+    </script>
+  </head>
+
+  <body>
+    <div id="loading-screen">
+      <div id="loading-brand" aria-label="Loading" role="status">
+        <!-- AetherHub Pulse Logo -->
+        <svg width="48" height="48" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="192" height="192" rx="48" fill="#1C1C1A"/>
+          <g transform="translate(96,96)">
+            <circle cx="0" cy="0" r="72" fill="none" stroke="#D4A017" stroke-width="1.5" opacity="0.12"/>
+            <circle cx="0" cy="0" r="56" fill="none" stroke="#D4A017" stroke-width="2" opacity="0.22"/>
+            <circle cx="0" cy="0" r="40" fill="none" stroke="#D4A017" stroke-width="2.5" opacity="0.38"/>
+            <circle cx="0" cy="0" r="24" fill="none" stroke="#D4A017" stroke-width="3" opacity="0.55"/>
+            <circle cx="0" cy="0" r="9" fill="url(#ah-pulse)"/>
+            <circle cx="0" cy="-56" r="2.5" fill="#D4A017" opacity="0.4"/>
+            <circle cx="40" cy="-40" r="2.5" fill="#D4A017" opacity="0.3"/>
+            <circle cx="56" cy="0" r="2.5" fill="#D4A017" opacity="0.35"/>
+            <circle cx="40" cy="40" r="2.5" fill="#D4A017" opacity="0.25"/>
+          </g>
+          <defs>
+            <linearGradient id="ah-pulse" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#E8C547"/>
+              <stop offset="50%" stop-color="#D4A017"/>
+              <stop offset="100%" stop-color="#B8860B"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span style="color:#D4A017;font-size:24px;font-weight:700;margin-left:12px;font-family:system-ui,sans-serif">AetherHub</span>
+      </div>
+    </div>
+    <div id="root" style="height: 100%"></div>
+
+    <!--ANALYTICS_SCRIPTS-->
+    <script type="module" src="/src/spa/entry.web.tsx"></script>
+  </body>
+</html>

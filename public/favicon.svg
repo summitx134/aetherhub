@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="favBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="favAccent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="50%" stop-color="#0891B2"/>
+      <stop offset="100%" stop-color="#0E7490"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="128" fill="url(#favBg)"/>
+
+  <!-- Hexagon hub mark (simplified) -->
+  <g transform="translate(256,256)">
+    <!-- Hexagon shape -->
+    <polygon
+      points="0,-180 155.9,-90 155.9,90 0,180 -155.9,90 -155.9,-90"
+      fill="url(#favAccent)"
+      opacity="0.12"
+    />
+    <polygon
+      points="0,-180 155.9,-90 155.9,90 0,180 -155.9,90 -155.9,-90"
+      fill="none"
+      stroke="url(#favAccent)"
+      stroke-width="6"
+    />
+
+    <!-- Inner hexagon -->
+    <polygon
+      points="0,-100 86.6,-50 86.6,50 0,100 -86.6,50 -86.6,-50"
+      fill="url(#favAccent)"
+      opacity="0.2"
+    />
+    <polygon
+      points="0,-100 86.6,-50 86.6,50 0,100 -86.6,50 -86.6,-50"
+      fill="none"
+      stroke="url(#favAccent)"
+      stroke-width="4"
+    />
+
+    <!-- Center "A" -->
+    <text
+      x="0" y="16"
+      font-family="'Segoe UI', 'Inter', system-ui, sans-serif"
+      font-size="110"
+      font-weight="800"
+      fill="url(#favAccent)"
+      text-anchor="middle"
+      dominant-baseline="central"
+    >A</text>
+  </g>
+</svg>
