@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "AetherHub",
+    "slug": "aetherhub",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "scheme": "aetherhub",
+    "splash": {
+      "backgroundColor": "#0D0D0D"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "ai.aetherhub.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0D0D0D"
+      },
+      "package": "ai.aetherhub.app"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font"
+    ]
+  }
+}

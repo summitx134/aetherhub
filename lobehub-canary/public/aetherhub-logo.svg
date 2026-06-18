@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="logoBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="logoAccent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="50%" stop-color="#0891B2"/>
+      <stop offset="100%" stop-color="#0E7490"/>
+    </linearGradient>
+    <linearGradient id="logoGlow" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background rounded square -->
+  <rect width="512" height="512" rx="112" fill="url(#logoBg)"/>
+
+  <!-- Hexagon hub mark -->
+  <g transform="translate(256,256)">
+    <!-- Glow behind -->
+    <circle cx="0" cy="0" r="110" fill="url(#logoGlow)"/>
+
+    <!-- Outer hexagon ring -->
+    <polygon
+      points="0,-160 138.6,-80 138.6,80 0,160 -138.6,80 -138.6,-80"
+      fill="none"
+      stroke="url(#logoAccent)"
+      stroke-width="4"
+      opacity="0.25"
+    />
+
+    <!-- Middle hexagon ring -->
+    <polygon
+      points="0,-115 99.6,-57.5 99.6,57.5 0,115 -99.6,57.5 -99.6,-57.5"
+      fill="none"
+      stroke="url(#logoAccent)"
+      stroke-width="5"
+      opacity="0.5"
+    />
+
+    <!-- Inner hexagon -->
+    <polygon
+      points="0,-72 62.4,-36 62.4,36 0,72 -62.4,36 -62.4,-36"
+      fill="url(#logoAccent)"
+      opacity="0.15"
+    />
+    <polygon
+      points="0,-72 62.4,-36 62.4,36 0,72 -62.4,36 -62.4,-36"
+      fill="none"
+      stroke="url(#logoAccent)"
+      stroke-width="3"
+    />
+
+    <!-- Center "A" letterform -->
+    <text
+      x="0" y="18"
+      font-family="'Segoe UI', 'Inter', system-ui, sans-serif"
+      font-size="72"
+      font-weight="700"
+      fill="url(#logoAccent)"
+      text-anchor="middle"
+      dominant-baseline="central"
+    >A</text>
+
+    <!-- Connection nodes (small dots at hex vertices) -->
+    <circle cx="0" cy="-160" r="6" fill="url(#logoAccent)" opacity="0.4"/>
+    <circle cx="138.6" cy="-80" r="6" fill="url(#logoAccent)" opacity="0.3"/>
+    <circle cx="138.6" cy="80" r="6" fill="url(#logoAccent)" opacity="0.3"/>
+    <circle cx="0" cy="160" r="6" fill="url(#logoAccent)" opacity="0.4"/>
+    <circle cx="-138.6" cy="80" r="6" fill="url(#logoAccent)" opacity="0.3"/>
+    <circle cx="-138.6" cy="-80" r="6" fill="url(#logoAccent)" opacity="0.3"/>
+
+    <!-- Orbit ring -->
+    <ellipse cx="0" cy="0" rx="190" ry="60" fill="none" stroke="url(#logoAccent)" stroke-width="1.5" opacity="0.12" transform="rotate(-20)"/>
+  </g>
+</svg>
